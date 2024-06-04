@@ -1,3 +1,4 @@
+import { removeBook } from "./library.js";
 export function Book(title, author, pages, year, read) {
   this.title = title;
   this.author = author;
@@ -15,22 +16,24 @@ export function bookToCard(book, index) {
     <p class="card-pages">Pages: ${pages}</p>
     <p class="card-year">Year published: ${year}</p>
     <p class="read">${read ? "read" : "not read"}</p>
-    <button class="card-edit-btn" >Edit</button>`;
+    <button class="card-edit-btn" >Edit</button>
+  `;
 
-  const removeBtn = document.createElement("button");
-  removeBtn.classList.add("card-remove-btn");
-  removeBtn.setAttribute("data-index", index);
-  removeBtn.innerHTML = "Remove";
-
-  card.appendChild(removeBtn);
+  card.appendChild(createDeleteBtn(index));
 
   return card;
 }
-export function clearForm() {
-  const form = document.getElementById("book-form");
-  form.title.value = "";
-  form.author.value = "";
-  form.pages.value = "";
-  form.year.value = "";
-  form.read.checked = "";
-}
+
+const createDeleteBtn = (i) => {
+  const removeBtn = document.createElement("button");
+  removeBtn.classList.add("card-remove-btn");
+  removeBtn.setAttribute("data-index", i);
+  removeBtn.innerHTML = "Remove";
+
+  removeBtn.addEventListener("click", (e) => {
+    let index = e.target.getAttribute("data-index");
+    removeBook(index);
+  });
+
+  return removeBtn;
+};
