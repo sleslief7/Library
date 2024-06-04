@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+:root {
+  --first-color: #232931;
+  --second-color: #393e46;
+  --third-color: #4ecca3;
+  --fourth-color: #eeeeee;
+  --fifth-color: #e80f0f;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--first-color);
+  color: var(--fourth-color);
+  position: relative;
+  top: 185px;
+}
+#header {
+  background-color: var(--second-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 5px;
+  height: 185px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#header > h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+#cards-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  border: 2px solid var(--third-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+dialog {
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  width: 15%;
+  border: 3px solid var(--third-color);
+  border-radius: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+form label {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+form input {
+  font-size: 1rem;
+  background-color: var(--first-color);
+  border: 1px solid var(--third-color);
+  color: var(--fourth-color);
+  border-radius: 10px;
+  height: 2.5rem;
+  padding-left: 8px;
+}
+#checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+label[for="read"] {
+  font-size: 1.3rem;
+}
+.modal-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.modal-btn,
+#open-modal-btn,
+.card-remove-btn,
+.card-edit-btn {
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: var(--first-color);
+  color: var(--third-color);
+  border: 1px solid var(--third-color);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.modal-btn:hover,
+#open-modal-btn:hover,
+.card-edit-btn:hover {
+  background-color: var(--third-color);
+  color: var(--first-color);
+  border: 1px solid var(--first-color);
+  cursor: pointer;
+}
+#close-modal-btn,
+.card-remove-btn {
+  background-color: var(--first-color);
+  color: var(--fifth-color);
+  border: 1px solid var(--fifth-color);
+}
+#close-modal-btn:hover,
+.card-remove-btn:hover {
+  background-color: var(--fifth-color);
+  color: var(--first-color);
+  border: 1px solid var(--first-color);
+}
+#open-modal-btn {
+  width: 10%;
+}
+dialog::backdrop {
+  background-color: hsla(0, 0%, 0%, 0.562);
+}
+.card-edit-btn {
+  margin-right: 8px;
+}

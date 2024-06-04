@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>Library</title>
+  </head>
+  <body>
+    <div id="header">
+      <h1>My book collection</h1>
+      <button id="open-modal-btn">Add a book</button>
+    </div>
+    <div id="cards-container"></div>
+    <dialog id="modal">
+      <form action="" id="book-form">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="The Little Mermaid"
+          required
+        />
+
+        <label for="author">Author</label>
+        <input
+          type="text"
+          name="author"
+          id="author"
+          placeholder="Hans Christian Andersen"
+          required
+        />
+
+        <label for="pages">Pages</label>
+        <input
+          type="number"
+          name="pages"
+          id="pages"
+          placeholder="200"
+          required
+        />
+
+        <label for="year">Year published</label>
+        <input
+          type="number"
+          name="year"
+          id="year"
+          placeholder="1837"
+          required
+        />
+        <div id="checkbox-container">
+          <input type="checkbox" name="read" id="read" checked />
+          <label for="read">Read</label>
+        </div>
+
+        <div class="modal-btns">
+          <button type="submit" id="add-book-btn" class="modal-btn">Add</button>
+          <button type="button" id="close-modal-btn" class="modal-btn">
+            Close
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
