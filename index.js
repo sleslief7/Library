@@ -1,4 +1,4 @@
-import { addBook } from "./library.js";
+import { addBook, changeBtn, retrieveLocalStorage } from "./library.js";
 
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("open-modal-btn");
@@ -13,7 +13,10 @@ function clearForm() {
   form.read.checked = "";
 }
 
-modalBtn.addEventListener("click", () => modal.showModal());
+modalBtn.addEventListener("click", () => {
+  changeBtn();
+  modal.showModal();
+});
 
 closeModal.addEventListener("click", () => {
   modal.close();
@@ -22,7 +25,11 @@ closeModal.addEventListener("click", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  addBook();
-  clearForm();
-  modal.close();
+  if (retrieveLocalStorage().length < 100) {
+    addBook();
+    clearForm();
+    modal.close();
+  } else {
+    alert("Storage is full. Please remove some books before adding more.");
+  }
 });

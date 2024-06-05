@@ -1,4 +1,4 @@
-import { removeBook } from "./library.js";
+import { removeBook, openEditModal } from "./library.js";
 export function Book(title, author, pages, year, read) {
   this.title = title;
   this.author = author;
@@ -16,9 +16,8 @@ export function bookToCard(book, index) {
     <p class="card-pages">Pages: ${pages}</p>
     <p class="card-year">Year published: ${year}</p>
     <p class="read">${read ? "read" : "not read"}</p>
-    <button class="card-edit-btn" >Edit</button>
-  `;
-
+    `;
+  card.appendChild(createEditBtn(index));
   card.appendChild(createDeleteBtn(index));
 
   return card;
@@ -36,4 +35,20 @@ const createDeleteBtn = (i) => {
   });
 
   return removeBtn;
+};
+
+const createEditBtn = (i) => {
+  const editBtn = document.createElement("button");
+  editBtn.classList.add("card-edit-btn");
+  editBtn.setAttribute("data-index", i);
+  editBtn.innerHTML = "Edit";
+
+  editBtn.addEventListener("click", (e) => {
+    let index = e.target.getAttribute("data-index");
+    openEditModal(index);
+    const saveBtn = document.getElementById("save-book-btn");
+    saveBtn.setAttribute("data-current-index", index);
+  });
+
+  return editBtn;
 };

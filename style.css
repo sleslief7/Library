@@ -126,3 +126,15 @@ dialog::backdrop {
 .card-edit-btn {
   margin-right: 8px;
 }
+.disabled {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+@media all and (max-width: 1500px) {
+  dialog {
+    width: 25%;
+  }
+}
