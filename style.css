@@ -46,6 +46,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 2px 2px 2px var(--shadow-color);
+  word-wrap: break-word;
 }
 dialog {
   background-color: var(--second-color);
