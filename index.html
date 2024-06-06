@@ -3,20 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <script
+      src="https://kit.fontawesome.com/40a1961b17.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Library</title>
   </head>
   <body>
     <div id="header">
-      <h1>My book collection</h1>
-      <button id="open-modal-btn">Add a book</button>
+      <h1><i class="fa-solid fa-book"></i> Library</h1>
+      <button id="open-modal-btn"><i class="fa-solid fa-plus"></i></button>
     </div>
     <div id="cards-container"></div>
     <dialog id="modal">
@@ -67,11 +70,12 @@
           </button>
           <button type="submit" id="add-book-btn" class="modal-btn">Add</button>
           <button type="button" id="close-modal-btn" class="modal-btn">
-            Close
+            Cancel
           </button>
         </div>
       </form>
     </dialog>
+    <footer>Created by Leslie Fernandez</footer>
     <script type="module" src="index.js"></script>
   </body>
 </html>

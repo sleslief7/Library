@@ -13,9 +13,9 @@ export function bookToCard(book, index) {
   card.innerHTML = `
     <h3 class="card-title">Title: ${title}</h3>
     <p class="card-author">Author: ${author}</p>
-    <p class="card-pages">Pages: ${pages}</p>
-    <p class="card-year">Year published: ${year}</p>
-    <p class="read">${read ? "read" : "not read"}</p>
+    <p class="card-pages">${pages} pages</p>
+    <p class="card-year">Published: ${year}</p>
+    ${read ? "<p class='read'>read </p>" : "<p class='not-read'>not read"}</p>
     `;
   card.appendChild(createEditBtn(index));
   card.appendChild(createDeleteBtn(index));
@@ -27,10 +27,10 @@ const createDeleteBtn = (i) => {
   const removeBtn = document.createElement("button");
   removeBtn.classList.add("card-remove-btn");
   removeBtn.setAttribute("data-index", i);
-  removeBtn.innerHTML = "Remove";
+  removeBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
   removeBtn.addEventListener("click", (e) => {
-    let index = e.target.getAttribute("data-index");
+    let index = Number(e.target.getAttribute("data-index"));
     removeBook(index);
   });
 
@@ -41,13 +41,13 @@ const createEditBtn = (i) => {
   const editBtn = document.createElement("button");
   editBtn.classList.add("card-edit-btn");
   editBtn.setAttribute("data-index", i);
-  editBtn.innerHTML = "Edit";
+  editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 
   editBtn.addEventListener("click", (e) => {
-    let index = e.target.getAttribute("data-index");
+    let index = Number(e.target.getAttribute("data-index"));
     openEditModal(index);
     const saveBtn = document.getElementById("save-book-btn");
-    saveBtn.setAttribute("data-current-index", index);
+    saveBtn.setAttribute("data-index", index);
   });
 
   return editBtn;

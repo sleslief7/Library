@@ -5,7 +5,7 @@ const modalBtn = document.getElementById("open-modal-btn");
 const closeModal = document.getElementById("close-modal-btn");
 const form = document.getElementById("book-form");
 
-function clearForm() {
+export function clearForm() {
   form.title.value = "";
   form.author.value = "";
   form.pages.value = "";

@@ -43,6 +43,7 @@ body {
   border: 2px solid var(--third-color);
   border-radius: 10px;
   padding: 20px;
+  box-shadow: 2px 2px 2px rgb(21, 21, 21);
 }
 dialog {
   background-color: var(--second-color);
@@ -117,6 +118,10 @@ label[for="read"] {
   color: var(--first-color);
   border: 1px solid var(--first-color);
 }
+.card-remove-btn,
+.card-edit-btn {
+  font-size: 0.8rem;
+}
 #open-modal-btn {
   width: 10%;
 }
@@ -132,7 +137,23 @@ dialog::backdrop {
 .show {
   display: block;
 }
-
+.card-title {
+  font-size: 2rem;
+}
+footer {
+  text-align: center;
+}
+.read,
+.not-read {
+  padding: 3px 5px;
+  background-color: rgb(0, 121, 0);
+  width: max-content;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.not-read {
+  background-color: rgb(253, 93, 93);
+}
 @media all and (max-width: 1500px) {
   dialog {
     width: 25%;

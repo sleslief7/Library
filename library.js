@@ -1,4 +1,5 @@
 import { Book, bookToCard } from "./book.js";
+import { clearForm } from "./index.js";
 
 const form = document.getElementById("book-form");
 const modal = document.getElementById("modal");
@@ -47,9 +48,10 @@ function updateForm(currentBook) {
 
 saveBtn.addEventListener("click", (e) => {
   const target = e.target;
-  let index = Number(target.getAttribute("data-current-index"));
+  let index = Number(target.getAttribute("data-index"));
   updateBook(index);
   modal.close();
+  clearForm();
 });
 
 export function changeBtn() {
