@@ -6,7 +6,7 @@ export function Book(title, author, pages, year, read) {
   this.year = year;
   this.read = read;
 }
-export function bookToCard(book, index) {
+export const bookToCard = (book, index) => {
   const { title, author, pages, year, read } = book;
   const card = document.createElement("div");
   card.classList.add("card");
@@ -23,7 +23,7 @@ export function bookToCard(book, index) {
   card.appendChild(createDeleteBtn(index));
 
   return card;
-}
+};
 
 const createDeleteBtn = (i) => {
   const removeBtn = document.createElement("button");

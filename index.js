@@ -5,13 +5,13 @@ const modalBtn = document.getElementById("open-modal-btn");
 const closeModalBtn = document.getElementById("close-modal-btn");
 const form = document.getElementById("book-form");
 
-export function clearForm() {
+export const clearForm = () => {
   form.title.value = "";
   form.author.value = "";
   form.pages.value = "";
   form.year.value = "";
   form.read.checked = "";
-}
+};
 
 modalBtn.addEventListener("click", () => {
   changeBtn();
