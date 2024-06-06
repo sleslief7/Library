@@ -2,7 +2,7 @@ import { addBook, changeBtn, retrieveLocalStorage } from "./library.js";
 
 const modal = document.getElementById("modal");
 const modalBtn = document.getElementById("open-modal-btn");
-const closeModal = document.getElementById("close-modal-btn");
+const closeModalBtn = document.getElementById("close-modal-btn");
 const form = document.getElementById("book-form");
 
 export function clearForm() {
@@ -18,7 +18,7 @@ modalBtn.addEventListener("click", () => {
   modal.showModal();
 });
 
-closeModal.addEventListener("click", () => {
+closeModalBtn.addEventListener("click", () => {
   modal.close();
   clearForm();
 });

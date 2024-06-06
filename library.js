@@ -47,7 +47,7 @@ function updateForm(currentBook) {
 }
 
 saveBtn.addEventListener("click", (e) => {
-  const target = e.target;
+  const target = e.currentTarget;
   let index = Number(target.getAttribute("data-index"));
   updateBook(index);
   modal.close();

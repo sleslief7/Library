@@ -5,31 +5,33 @@
 :root {
   --first-color: #232931;
   --second-color: #393e46;
-  --third-color: #4ecca3;
+  --third-color: #3e9e7e;
   --fourth-color: #eeeeee;
-  --fifth-color: #e80f0f;
+  --fifth-color: #c30c0c;
+  --shadow-color: rgb(30, 29, 29);
 }
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--first-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
+  background: linear-gradient(180deg, var(--first-color) 0%, #343d4a 50%);
   color: var(--fourth-color);
-  position: relative;
-  top: 185px;
 }
 #header {
   background-color: var(--second-color);
-  position: fixed;
-  top: 0;
   width: 100%;
-  padding: 5px;
-  height: 185px;
+  padding: 5px 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 2px 3px var(--shadow-color);
 }
 #header > h1 {
-  font-size: 3rem;
+  margin: 10px 0px;
+  font-size: 2rem;
   text-align: center;
 }
 #cards-container {
@@ -43,14 +45,22 @@ body {
   border: 2px solid var(--third-color);
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 2px 2px 2px rgb(21, 21, 21);
+  box-shadow: 2px 2px 2px var(--shadow-color);
 }
 dialog {
   background-color: var(--second-color);
   color: var(--fourth-color);
-  width: 15%;
+  width: 20%;
   border: 3px solid var(--third-color);
   border-radius: 10px;
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 form {
   display: flex;
@@ -98,6 +108,14 @@ label[for="read"] {
   transition: 0.5s;
   cursor: pointer;
 }
+#open-modal-btn {
+  box-sizing: content-box;
+  padding: 3px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
 .modal-btn:hover,
 #open-modal-btn:hover,
 .card-edit-btn:hover {
@@ -122,9 +140,6 @@ label[for="read"] {
 .card-edit-btn {
   font-size: 0.8rem;
 }
-#open-modal-btn {
-  width: 10%;
-}
 dialog::backdrop {
   background-color: hsla(0, 0%, 0%, 0.562);
 }
@@ -139,23 +154,58 @@ dialog::backdrop {
 }
 .card-title {
   font-size: 2rem;
+  margin: 0;
 }
 footer {
   text-align: center;
+  padding-bottom: 8px;
+  margin-top: auto;
+}
+.read {
+  background-color: var(--third-color);
 }
 .read,
 .not-read {
   padding: 3px 5px;
-  background-color: rgb(0, 121, 0);
   width: max-content;
   border-radius: 4px;
   font-weight: bold;
 }
 .not-read {
-  background-color: rgb(253, 93, 93);
+  border: 1px solid #dddada;
+  color: #dddada;
 }
-@media all and (max-width: 1500px) {
+.card-pages,
+.read,
+.not-read {
+  margin: 0;
+}
+#github-link {
+  font-size: 1.3rem;
+}
+#github-link:visited {
+  color: var(--fourth-color);
+}
+#github-link:hover {
+  color: var(--third-color);
+}
+.card-inner-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+@media all and (max-width: 1250px) {
   dialog {
-    width: 25%;
+    width: 30%;
+  }
+}
+@media all and (max-width: 760px) {
+  dialog {
+    width: 50%;
+  }
+}
+@media all and (max-width: 450px) {
+  dialog {
+    width: 90%;
   }
 }
