@@ -44,7 +44,7 @@ const createEditBtn = (i) => {
   editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 
   editBtn.addEventListener("click", (e) => {
-    let index = e.target.getAttribute("data-index");
+    let index = Number(e.target.getAttribute("data-index"));
     openEditModal(index);
     const saveBtn = document.getElementById("save-book-btn");
     saveBtn.setAttribute("data-index", index);
